@@ -1,1 +1,1 @@
-# C - Pico Non Preemptive Scheduler
+# C - Pico Non-Preemptive Scheduler
