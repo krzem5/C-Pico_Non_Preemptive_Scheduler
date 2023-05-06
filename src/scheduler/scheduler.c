@@ -6,7 +6,7 @@
 
 
 typedef struct _TASK_DATA{
-	uint64_t call_time;
+	unsigned long long int call_time;
 	scheduler_callback_t callback;
 	void* arg;
 	scheduler_task_id_t prev;
