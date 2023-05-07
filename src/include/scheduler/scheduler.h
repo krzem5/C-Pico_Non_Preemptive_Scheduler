@@ -33,7 +33,7 @@ scheduler_task_id_t scheduler_schedule(scheduler_task_delay_t microseconds,sched
 
 
 
-void scheduler_unschedule(scheduler_task_id_t task);
+_Bool scheduler_unschedule(scheduler_task_id_t task);
 
 
 

@@ -85,9 +85,9 @@ scheduler_task_id_t scheduler_schedule(scheduler_task_delay_t microseconds,sched
 
 
 
-void scheduler_unschedule(scheduler_task_id_t task){
-	if (!_scheduler_enabled||task>=SCHEDULER_MAX_TASK_COUNT){
-		return;
+_Bool scheduler_unschedule(scheduler_task_id_t task){
+	if (!_scheduler_enabled||task>=SCHEDULER_MAX_TASK_COUNT||task==SCHEDULER_INVALID_TASK_ID){
+		return 0;
 	}
 	_scheduler_data[task].call_time=0xffffffffffffffffull;
 	_scheduler_data[task].callback=NULL;
@@ -109,4 +109,5 @@ void scheduler_unschedule(scheduler_task_id_t task){
 		_scheduler_data[_scheduler_first_free_task].prev=task;
 	}
 	_scheduler_first_free_task=task;
+	return 1;
 }
